@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block seeCustomer %}active{% endblock seeCustomer %}
+{% block body %} 
+{% load static%}
+<div class="container mt-5">
+  <h2 class="text-center">All Customer List</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Email Id</th>
+        <th scope="col">Phone No</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for customer in customerlist %}
+      <tr>
+        <td>{{customer.customerName}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.phoneno}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+ 
+  </div>
+{% endblock body %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block seeRental %}active{% endblock seeRental %}
+{% block body %} 
+{% load static%}
+<div class="container mt-5">
+  <h2 class="text-center">Rent Booking Details</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Rental Date</th>
+        <th scope="col">Return Date</th>
+        <th scope="col">Vehicle Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in bookings %}
+      <tr>
+        <td>{{booking.customerName}}</td>
+        <td>{{booking.rentalDate}}</td>
+        <td>{{booking.returnDate}}</td>
+        <td>{{booking.vehicleType}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+ 
+  </div>
+{% endblock body %}

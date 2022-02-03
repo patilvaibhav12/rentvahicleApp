@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block addRental %}active{% endblock addRental %}
+{% block body %} 
+{% load static%}
+
+
+<div class="container mt-5">
+  {% for message in messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{vehicle}}{{message}}
+    <a href="/addRental" class="btn-close" aria-label="Close"></a>
+  </div>
+        {% endfor %}
+        <div style="width: 70%;">
+        <form action="/addRental/" method="POST">
+          {% csrf_token %}
+            <div class="mb-3">
+              <label for="cName" class="form-label">Customer Name</label>
+              <select class="form-select mb-1" aria-label="Default select example" name="cName" required>
+                <option selected>Select Customer Name</option>
+                {% for customer in customerlist %}
+               <option value = "{{customer.customerName}}" name = "cName">{{customer.customerName}}</option>
+                {% endfor %}
+              </select>
+              <div class="date mt-1">
+                <label for="rdate" class="form-label">Choose Rent Date</label><br>
+                <input class="form-control" type="date" id="rdate" name="rdate" required>
+              </div>
+
+              <div class="date mt-1">
+                <label for="rndate" class="form-label">Choose Return Date</label><br>
+                <input class="form-control" type="date" id="rndate" name="rndate">
+              </div>
+              <!--<label for="email" class="form-label">Email address</label>
+              <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" required>-->
+              <label for="vehicle" class="form-label">vehicles List</label>
+              <select class="form-select" aria-label="Default select example" name="vehicle">
+                <option selected>Select Vehicle</option>
+                {% for inventory in inventories %}
+               <option value = "{{inventory.vehicleType}}" name = "vehicle">{{inventory.vehicleType}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+          </form>
+        </div>
+  </div>
+{% endblock body %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block seeInventory %}active{% endblock seeInventory %}
+{% block body %} 
+{% load static%}
+<div class="container mt-5">
+  <h2 class="text-center">All Available Inventory</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">NO</th>
+        <th scope="col">Vehicle Type</th>
+        <th scope="col">Available vehicles</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for vehicle in inventories %}
+      <tr>
+        <th scope="row">{{vehicle.id}}</th>
+        <td>{{vehicle.vehicleType}}</td>
+        <td>{{vehicle.available}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  </div>
+{% endblock body %}

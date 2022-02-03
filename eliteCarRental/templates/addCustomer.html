@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block addCustomer %}active{% endblock addCustomer %}
+{% block body %} 
+{% load static%}
+<div class="container mt-5">
+  {% for message in messages %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{message}}
+    <a href="/addCustomer" class="btn-close" aria-label="Close"></a>
+  </div>
+        {% endfor %}
+    <form action="/addCustomer/" method="POST">
+      {% csrf_token %}
+        <div class="mb-3" style="width: 70%;">
+          <label for="cName" class="form-label">Customer Name</label>
+          <input type="text" class="form-control" id="cName" name="cName" aria-describedby="emailHelp" required>
+          <label for="email" class="form-label">Email address</label>
+          <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp" required>
+        </div>
+
+            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+      </form>
+  </div>
+{% endblock body %}
