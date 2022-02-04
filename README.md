@@ -1,5 +1,16 @@
 # rentvahicleApp
-a django project for rent vehicles startup.
+a django project for rent vehicles startup.<br>
+**Front-End Technologies**<br>
+1. HTML, CSS
+2. BootStrap5
+
+**Backend Technologies** <br>
+1. Django 3.2.4 Framework
+2. Python3
+
+**Database** <br>
+Sqlite3 (django ORM for DBMS Operations)<br>
+
 
 ## It has following functions:
 **1. Add Customer Details** <br>
